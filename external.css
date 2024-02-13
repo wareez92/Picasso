@@ -1,0 +1,260 @@
+body{
+    margin: 0;
+    background-color: rgb(68, 124, 140);
+}
+
+/* Main Content Layout */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Artwork Section */
+
+.portrait {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.sky {
+    grid-column: 3;
+    grid-row: 1/4;
+    background-image: linear-gradient(rgb(59, 69, 245),rgb(144, 144, 196),rgb(123, 123, 182),rgb(92, 92, 159));
+    height: 100%;
+    width: 100%;
+}
+
+.water{
+    grid-column: 3;
+    grid-row: 3/5;
+    background-image: linear-gradient(rgb(51, 82, 152) 5px,rgb(136, 136, 193), rgb(128, 128, 201),rgb(152, 152, 183),rgb(195, 182, 185));
+    height: 100%;
+    width: 100%;
+}  
+
+.wave-1 {
+    width: 100%;
+    grid-column: 3;
+    grid-row: 4/5;
+    background-color: rgb(80, 135, 178);
+    border-bottom: solid 15px white;
+    opacity: .25;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 25%;
+    animation-name: waveMotions;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    /* animation-timing-function: ease-in-out; */
+
+}
+
+.wave-2 {
+    width: 100%;
+    grid-column: 3;
+    grid-row: 4/5;
+    background-color: rgb(106, 161, 197);
+    border-bottom: solid 5px white;
+    opacity: .25;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 25%;
+    animation-name: waveMotions2;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-delay: 5s;
+    /* animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+}
+
+@keyframes waveMotions {
+
+    0%{
+        height: 0px;
+        opacity: 0;
+    }
+
+    25%{
+        opacity: .15;
+    }
+    
+    50%{
+        opacity: .5;
+    }
+
+    100%{
+        height: 110px;
+        opacity: .01; 
+        border-bottom-left-radius: 100%;
+    }
+    
+}
+
+@keyframes waveMotions2 {
+
+    0%{
+        height: 0px;
+        opacity: 0;
+    }
+
+    25%{
+        opacity: .25;
+    }
+    
+    50%{
+        opacity: .5;
+    }
+
+    100%{
+        height: 100px;
+        opacity: .01; 
+        border-bottom-right-radius: 100%;
+    }
+    
+}
+
+.rocks {
+    border-style: solid;
+    border-color: transparent transparent rgb(106, 56, 56) transparent;
+    border-width: 0 25px 25px 25px;
+    height: 0;
+    width: 0;
+    box-sizing: content-box;
+    position: relative;
+    margin: 20px 0 50px 0;
+    grid-column: 3;
+    grid-row: 4/5;
+    z-index: 1;
+    margin-bottom: 80px;
+    opacity: 0;
+
+}
+
+.cloud-1 {
+    height: 20px;
+    width: 70px;
+    background-image: linear-gradient(white, transparent 75%);
+    border-bottom-right-radius: 100%;
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
+    opacity: .7;
+}
+
+.cloud-2 {
+    height: 20px;
+    width: 70px;
+    background-image: linear-gradient(white, transparent 75%);
+    border-bottom-right-radius: 100%;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    margin-top: -40px;
+    margin-left: 100px;
+    opacity: .8;
+}
+
+.cloud-3 {
+    height: 20px;
+    width: 70px;
+    background-image: linear-gradient(white, transparent 75%);
+    border-bottom-right-radius: 100%;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    margin-top: -70px;
+    margin-left: 250px;
+    opacity: .4;
+}
+
+.clouds {
+    grid-column: 3;
+    grid-row: 2;
+    animation: .1s infinite shimmering;
+}
+
+@keyframes shimmering {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: .8;
+    }
+}
+
+.splashes {
+    background-image: radial-gradient(#e7f1ff 20%, transparent 20%),
+    radial-gradient(#fafafa 20%, transparent 20%);
+    background-color: #e5383500;
+    background-size: 10px 10px;
+    rotate: 45deg;
+    border-radius: 100%;
+    z-index: 1;
+    grid-column: 3;
+    grid-row: 3/5;
+    height: 30px;
+    width: 30px;
+    opacity: 0;
+    /* animation: 6s infinite splashing; */
+    /* animation: .1 infinite shimmering; */
+}
+
+@keyframes splashing {
+    0% {
+        opacity: 0;
+        margin: 20px;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    75% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Info Section */
+
+.Info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+
+.submit {
+    border-radius: 2em;
+    height: 50px;
+    width: 150px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: red;
+    color: white;
+    font-weight: 700;
+    font-size: large;
+    padding: 10px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px black;
+}
+
+@media (max-width: 768px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 320px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
